@@ -17,6 +17,9 @@
     * {
       background-image: url("${POTATO_SRC}") !important;
     }
+    picture source, picture img {
+      content: url("${POTATO_SRC}") !important;
+    }
   `;
   (document.head || document.documentElement).appendChild(style);
 
@@ -28,6 +31,7 @@
   }
 
   function potatoizeAll(root) {
+    if (!root || !root.querySelectorAll) return;
     root.querySelectorAll('img').forEach(potatoizeImg);
   }
 
