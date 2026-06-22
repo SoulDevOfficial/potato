@@ -11,7 +11,7 @@
 (function() {
   'use strict';
 
-  const POTATO_SRC = "https://i.imgur.com/5dJphbI.png";
+  const POTATO_SRC = "https://i.imgur.com/5dJphbI.png"; // if for SOME REASON you don't want potatos, you can change this to whatever image you want
   const style = document.createElement('style');
   style.textContent = `
     * {
