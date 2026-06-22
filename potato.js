@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         potato.js (Optimized)
 // @namespace    potato.js
-// @version      2.0
+// @version      2.2
 // @description  Turns every image on every page into this potato without melting your CPU.
 // @match        *://*/*
 // @run-at       document-start
@@ -30,9 +30,18 @@
     img.src = POTATO_SRC;
   }
 
+  function potatoizeBackground(el) {
+    if (el.dataset && el.dataset.potatoized === "1") return;
+    if (el.style && el.style.backgroundImage && el.style.backgroundImage !== 'none') {
+      el.dataset.potatoized = "1";
+      el.style.backgroundImage = `url("${POTATO_SRC}")`;
+    }
+  }
+
   function potatoizeAll(root) {
     if (!root || !root.querySelectorAll) return;
     root.querySelectorAll('img').forEach(potatoizeImg);
+    root.querySelectorAll('[style*="background"]').forEach(potatoizeBackground);
   }
 
   function init() {
@@ -59,8 +68,12 @@
             potatoizeAll(node);
           }
         });
-      } else if (m.type === 'attributes' && m.target.tagName === 'IMG') {
-        potatoizeImg(m.target);
+      } else if (m.type === 'attributes') {
+        if (m.target.tagName === 'IMG') {
+          potatoizeImg(m.target);
+        } else if (m.attributeName === 'style') {
+          potatoizeBackground(m.target);
+        }
       }
     }
 
@@ -72,7 +85,7 @@
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['src', 'srcset']
+      attributeFilter: ['src', 'srcset', 'style']
     });
   }
 
