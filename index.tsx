@@ -9,7 +9,7 @@ import { Margins } from "@components/margins";
 import { Paragraph } from "@components/Paragraph";
 import definePlugin from "@utils/types";
 
-const POTATO_SRC = "https://i.imgur.com/5dJphbI.png"; // if for SOME REASON you don't want potatos, you can change this to whatever image you want
+const POTATO_SRC = "https://i.imgur.com/ot3fmFv.png"; // if for SOME REASON you don't want potatos, you can change this to whatever image you want
 let observer: MutationObserver | null = null;
 let style: HTMLStyleElement | null = null;
 
