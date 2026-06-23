@@ -2,3 +2,5 @@
 
 # And so it began
 Little script (made by ARI and optimized by myself) that changes images into potatos along with a untried version for vencord. There is seriously no point in running this but if you're looking at it, you might as well try it
+
+It has been tested (and laughed at) for regular browsing! Just choose between `chill-potato` or `super-potato` and upload the script to [**TamperMonkey**](https://www.tampermonkey.net/)! Make sure you enable user scripts if it's your first time using the tamper monkey plugin!
